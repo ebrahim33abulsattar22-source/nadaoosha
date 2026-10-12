@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إلى ندوشه ❤️ | Happy New Year 2027</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Amiri:wght@400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ========== RESET & BASE ========== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#0a0510;color:#fff0f7;
+  font-family:'Cairo',sans-serif;overflow-x:hidden;
+  background-image:
+    radial-gradient(ellipse at 20% 0%,#5a1d4d 0%,transparent 50%),
+    radial-gradient(ellipse at 80% 100%,#3d1240 0%,transparent 50%),
+    radial-gradient(ellipse at top,#431638,#0a0510 65%);
+  min-height:100vh;
+  cursor:none;
+}
+button,input{font:inherit;cursor:none}
+.hidden{display:none!important}
+.script{font-family:'Dancing Script',cursive;direction:ltr}
+
+/* ========== CUSTOM CURSOR ========== */
+.cursor{
+  position:fixed;width:22px;height:22px;border-radius:50%;
+  background:radial-gradient(circle,#ff6fb5,#e94c96);
+  pointer-events:none;z-index:9999;
+  transition:transform .15s ease,width .2s,height .2s;
+  box-shadow:0 0 20px #ff6fb5,0 0 40px #ff6fb588;
+  transform:translate(-50%,-50%);
+}
+.cursor::after{
+  content:'♡';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);color:#fff;font-size:10px;
+}
+.cursor.big{width:50px;height:50px;background:radial-gradient(circle,#ffd99a,#ff6fb5)}
+@media(hover:none){.cursor{display:none}body,button,input{cursor:auto}}
+
+/* ========== LOADER ========== */
+#loader{
+  position:fixed;inset:0;background:#0a0510;
+  display:grid;place-items:center;z-index:9998;
+  transition:opacity .8s ease,visibility .8s;
+}
+#loader.done{opacity:0;visibility:hidden}
+.loader-heart{
+  width:80px;height:80px;position:relative;
+  animation:beat 1.2s ease-in-out infinite;
+}
+.loader-heart::before,.loader-heart::after{
+  content:'';position:absolute;width:40px;height:65px;
+  background:linear-gradient(135deg,#ff6fb5,#e94c96);
+  border-radius:40px 40px 0 0;top:0;left:40px;
+  transform:rotate(-45deg);transform-origin:0 100%;
+  box-shadow:0 0 30px #ff6fb588;
+}
+.loader-heart::after{left:0;transform:rotate(45deg);transform-origin:100% 100%}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.loader-text{
+  position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);
+  color:#ffb8dc;font-family:'Dancing Script',cursive;font-size:24px;
+  white-space:nowrap;letter-spacing:2px;
+}
+
+/* ========== FLOATING PETALS ========== */
+#petals{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.petal{
+  position:absolute;top:-50px;font-size:20px;
+  animation:fall linear infinite;
+  filter:drop-shadow(0 0 8px #ff6fb588);
+}
+@keyframes fall{
+  0%{transform:translateY(-50px) rotate(0deg);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+
+/* ========== GATE ========== */
+#gate{
+  min-height:100vh;display:grid;place-items:center;padding:20px;
+  position:relative;z-index:2;
+  background:linear-gradient(#0a0510aa,#0a0510ee),
+  url('assets/new_year_hero.png') center/cover;
+}
+.gate-card{
+  width:min(470px,100%);text-align:center;padding:35px 25px;
+  background:rgba(27,16,34,.92);backdrop-filter:blur(20px);
+  border:1px solid #f59ac866;
+  border-radius:28px;box-shadow:0 0 80px #e94c9650,inset 0 0 40px #e94c9615;
+  position:relative;overflow:hidden;
+  animation:cardIn .9s cubic-bezier(.2,.9,.3,1.2);
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(40px) scale(.9)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.gate-card::before{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:conic-gradient(from 0deg,transparent,#ff6fb544,transparent);
+  animation:rotate 6s linear infinite;pointer-events:none;
+}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.gate-card>*{position:relative;z-index:1}
+.gate-card img{
+  width:100%;height:200px;object-fit:cover;
+  border-radius:20px;border:1px solid #f59ac866;
+  box-shadow:0 10px 40px #e94c9640;
+}
+h1{color:#ffb8dc}
+.gate-card h1{font-size:clamp(28px,7vw,42px);margin:18px 0 5px}
+p{line-height:2}
+input{
+  width:100%;padding:15px;border:2px solid #f59ac866;
+  border-radius:15px;background:#0a0510;color:white;
+  text-align:center;margin:12px 0;outline:none;
+  transition:.3s;font-size:16px;
+}
+input:focus{border-color:#ff6fb5;box-shadow:0 0 25px #ff6fb566}
+
+/* ========== BUTTONS ========== */
+.btn{
+  padding:14px 28px;border:0;border-radius:32px;
+  color:white;background:linear-gradient(120deg,#a92d70,#ed69a8,#ff6fb5);
+  background-size:200% 200%;
+  cursor:pointer;font-weight:700;letter-spacing:.5px;
+  box-shadow:0 8px 25px #e94c9650;
+  transition:.3s;position:relative;overflow:hidden;
+  animation:gradientShift 4s ease infinite;
+}
+@keyframes gradientShift{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 35px #e94c9688}
+.btn:active{transform:translateY(-1px) scale(.98)}
+.btn::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,#fff5,transparent);
+  transition:.5s;
+}
+.btn:hover::before{left:100%}
+#error{color:#ffb0c9;min-height:24px}
+
+/* ========== HERO ========== */
+.hero{
+  min-height:100vh;display:grid;place-items:center;text-align:center;
+  padding:55px 20px;position:relative;
+  background:linear-gradient(#0a051066,#0a0510ee),
+  url('assets/new_year_hero.png') center/cover fixed;
+  overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,transparent 30%,#0a051088);
+  pointer-events:none;
+}
+.hero>div{position:relative;z-index:2;animation:fadeUp 1.2s ease}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(60px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero h1{
+  font-size:clamp(48px,11vw,110px);margin:10px 0;
+  background:linear-gradient(135deg,#ffb8dc,#ff6fb5,#ffd99a,#ffb8dc);
+  background-size:300% 300%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientShift 5s ease infinite;
+  filter:drop-shadow(0 0 30px #ff6fb566);
+}
+.hero h1 span{display:block;font-size:.4em;color:#fff0f7;-webkit-text-fill-color:#fff0f7;margin-top:10px}
+.hero p{max-width:680px;margin:20px auto;font-size:clamp(15px,2vw,18px)}
+
+/* Sparkles */
+.sparkle{
+  position:absolute;font-size:24px;pointer-events:none;
+  animation:sparkleAnim 2s ease-in-out infinite;
+}
+@keyframes sparkleAnim{
+  0%,100%{transform:scale(0) rotate(0deg);opacity:0}
+  50%{transform:scale(1) rotate(180deg);opacity:1}
+}
+
+/* ========== SECTIONS ========== */
+.container{width:min(1000px,92%);margin:auto}
+.section{padding:70px 0;position:relative;z-index:2}
+.title{
+  text-align:center;color:#ffb8dc;
+  font-size:clamp(26px,5vw,38px);font-weight:800;
+  margin-bottom:8px;position:relative;display:block;
+}
+.title::after{
+  content:'';display:block;width:80px;height:3px;margin:14px auto 0;
+  background:linear-gradient(90deg,transparent,#ff6fb5,transparent);
+  border-radius:2px;
+  animation:pulseLine 2s ease-in-out infinite;
+}
+@keyframes pulseLine{0%,100%{width:80px;opacity:1}50%{width:140px;opacity:.7}}
+.sub{text-align:center;color:#e6bcd4;margin-bottom:30px}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(50px);transition:1s cubic-bezier(.2,.9,.3,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* ========== MUSIC ========== */
+.music,.gift-box{
+  max-width:680px;margin:25px auto;padding:25px;
+  background:rgba(38,20,44,.85);backdrop-filter:blur(15px);
+  border:1px solid #f59ac855;border-radius:25px;text-align:center;
+  position:relative;overflow:hidden;
+  box-shadow:0 15px 50px #e94c9625;
+}
+.music::before{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;
+  background:linear-gradient(90deg,transparent,#ff6fb5,transparent);
+  animation:scanLine 3s linear infinite;
+}
+@keyframes scanLine{to{left:100%}}
+iframe{width:100%;height:152px;border:0;border-radius:14px;margin-top:10px}
+a{color:#ffc2e1}
+
+/* Equalizer */
+.eq{display:inline-flex;gap:4px;align-items:flex-end;height:24px;margin:0 8px}
+.eq span{
+  width:4px;background:linear-gradient(#ff6fb5,#ffd99a);
+  border-radius:2px;animation:eqBounce 1s ease-in-out infinite;
+}
+.eq span:nth-child(1){animation-delay:0s;height:40%}
+.eq span:nth-child(2){animation-delay:.15s;height:80%}
+.eq span:nth-child(3){animation-delay:.3s;height:55%}
+.eq span:nth-child(4){animation-delay:.45s;height:95%}
+.eq span:nth-child(5){animation-delay:.6s;height:60%}
+@keyframes eqBounce{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+
+/* ========== PHOTOS 3D ========== */
+.photos{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;margin-top:30px;perspective:1200px;
+}
+.photo{
+  background:#fff0dc;color:#47253d;
+  padding:12px 12px 20px;
+  box-shadow:0 20px 45px #0009,0 0 30px #e94c9625;
+  transform:rotate(-3deg);
+  transition:.5s cubic-bezier(.2,.9,.3,1.4);
+  position:relative;
+}
+.photo:nth-child(2){transform:rotate(3deg)}
+.photo:nth-child(3){transform:rotate(-2deg)}
+.photo:hover{
+  transform:rotate(0) translateY(-15px) scale(1.05);
+  box-shadow:0 35px 70px #000a,0 0 60px #e94c9655;
+  z-index:5;
+}
+.photo::before{
+  content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:60px;height:14px;
+  background:linear-gradient(90deg,#e94c9688,#ff6fb588);
+  opacity:.5;border-radius:4px;
+}
+.photo img{
+  width:100%;height:260px;object-fit:cover;display:block;
+  transition:.5s;
+}
+.photo:hover img{transform:scale(1.03)}
+.photo p{
+  text-align:center;font-family:'Dancing Script',cursive;
+  font-size:24px;margin:14px 0 0;color:#a33d70;font-weight:700;
+}
+
+/* ========== LETTER ========== */
+.letter{
+  background:
+    linear-gradient(135deg,#fff0db 0%,#f5d9cb 100%);
+  color:#48283b;padding:clamp(25px,5vw,55px);
+  border-radius:14px 30px 14px 30px;
+  box-shadow:0 30px 70px #0007,inset 0 0 80px #e94c9610;
+  margin-top:30px;position:relative;
+  background-image:
+    radial-gradient(circle at 20% 30%,#fff5 0%,transparent 15%),
+    radial-gradient(circle at 80% 70%,#fff3 0%,transparent 20%),
+    linear-gradient(135deg,#fff0db 0%,#f5d9cb 100%);
+  animation:letterGlow 6s ease-in-out infinite;
+}
+@keyframes letterGlow{
+  0%,100%{box-shadow:0 30px 70px #0007,inset 0 0 80px #e94c9610}
+  50%{box-shadow:0 30px 70px #0007,inset 0 0 100px #e94c9630}
+}
+.letter::before,.letter::after{
+  content:'❤';position:absolute;color:#e94c9640;font-size:40px;
+}
+.letter::before{top:15px;right:20px;transform:rotate(-15deg)}
+.letter::after{bottom:15px;left:20px;transform:rotate(15deg)}
+.letter h2{
+  text-align:center;color:#a33d70;
+  font-family:'Amiri',serif;font-size:32px;margin-bottom:20px;
+}
+.message{
+  font-family:'Amiri',serif;font-size:clamp(18px,3vw,21px);
+  line-height:2.1;white-space:pre-line;
+  padding-bottom:22px;margin-bottom:22px;
+  border-bottom:1px solid #a33d7030;
+  transition:.4s;position:relative;
+}
+.message:hover{
+  transform:translateX(-8px);
+  border-bottom-color:#a33d7060;
+}
+.message:last-child{border:0;margin-bottom:0;padding-bottom:0}
+
+/* ========== GIFT ========== */
+.gift{
+  font-size:85px;cursor:pointer;display:inline-block;
+  transition:.5s cubic-bezier(.2,.9,.3,1.6);
+  animation:giftFloat 3s ease-in-out infinite;
+  filter:drop-shadow(0 15px 25px #e94c9666);
+}
+@keyframes giftFloat{
+  0%,100%{transform:translateY(0) rotate(-5deg)}
+  50%{transform:translateY(-15px) rotate(5deg)}
+}
+.gift:hover{transform:scale(1.25) rotate(-12deg)}
+.gift.open{animation:giftShake .8s ease}
+@keyframes giftShake{
+  0%,100%{transform:rotate(0) scale(1)}
+  20%{transform:rotate(-25deg) scale(1.1)}
+  40%{transform:rotate(25deg) scale(1.15)}
+  60%{transform:rotate(-20deg) scale(1.2)}
+  80%{transform:rotate(15deg) scale(1.25)}
+}
+#giftText{
+  margin-top:20px;padding:20px;
+  background:linear-gradient(135deg,#ff6fb522,#ffd99a22);
+  border:1px dashed #ff6fb566;border-radius:18px;
+  animation:fadeUp .8s ease;
+  line-height:2.2;font-size:17px;
+}
+
+/* ========== CONFETTI ========== */
+.confetti{
+  position:fixed;width:12px;height:12px;
+  pointer-events:none;z-index:9998;
+  animation:confettiFall linear forwards;
+}
+@keyframes confettiFall{
+  to{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+
+/* ========== FOOTER ========== */
+footer{
+  text-align:center;padding:70px 20px;color:#e9bad4;
+  position:relative;z-index:2;
+  border-top:1px solid #f59ac822;
+}
+footer .script{
+  font-size:clamp(34px,7vw,58px);color:#ffb8dc;
+  background:linear-gradient(135deg,#ffb8dc,#ff6fb5,#ffd99a);
+  background-size:200% 200%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientShift 5s ease infinite;
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:600px){
+  .photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .photo img{height:200px}
+  .photo:last-child{grid-column:1/-1;width:80%;justify-self:center}
+  .hero{min-height:88vh;background-attachment:scroll}
+  .gift{font-size:70px}
+  .letter{padding:25px 20px}
+  .letter h2{font-size:26px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-heart"></div>
+  <div class="loader-text">Loading Love...</div>
+</div>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+
+<!-- Floating Petals -->
+<div id="petals"></div>
+
+<!-- شاشة كلمة السر -->
+<section id="gate">
+ <div class="gate-card">
+  <img src="assets/new_year_hero.png" alt="مفاجأة ندوشه">
+  <p class="script" style="color:#ffd99a;margin-top:14px">A LITTLE SURPRISE FOR YOU ♡</p>
+  <h1>أهلًا يا أجمل ندى ❤️</h1>
+  <p>يا ترى إيه المفاجأة اللي مستنياكي؟ 🥹✨</p>
+  <p>اكتبي كلمة السر عشان تفتحي هديتك</p>
+  <form id="passForm">
+   <input id="pass" type="password" placeholder="كلمة السر..." autocomplete="off">
+   <button class="btn" type="submit">❤️ افتحي المفاجأة</button>
+  </form>
+  <p id="error"></p>
+  <small>تلميح: اسمك بالإنجليزي 😉</small>
+ </div>
+</section>
+
+<!-- الموقع الرئيسي -->
+<main id="site" class="hidden">
+
+<header class="hero">
+ <div>
+  <p style="color:#ffd99a;letter-spacing:4px;font-weight:600">A NEW YEAR • A SPECIAL PERSON</p>
+  <h1 class="script">Happy New Year<span>يا ندوشه بتاعتي ♡</span></h1>
+  <p>سنة جديدة، وأمنية من قلبي إنك تفضلي دايمًا مبسوطة وقريبة من قلبي. 🥹❤️</p>
+  <a href="#letter" class="btn" style="text-decoration:none;display:inline-block;margin-top:15px">افتحي جوابك يا ندووشتي 💌</a>
+ </div>
+</header>
+
+<section class="section container reveal">
+ <h2 class="title">أغنيتك وإنتي بتقرأي <span class="eq"><span></span><span></span><span></span><span></span><span></span></span></h2>
+ <p class="sub">شغّلي الأغنية وخدي وقتك في قراءة كل كلمة ❤️</p>
+ <div class="music">
+  <p>أغنية المفاجأة بتاعتك يا ندوشه</p>
+  <iframe
+   src="https://open.spotify.com/embed/track/6yVGUtmHwDsqqXs1Lak423?utm_source=generator"
+   title="أغنية ندوشه"
+   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+   loading="lazy">
+  </iframe>
+  <p><a target="_blank" rel="noopener" href="https://open.spotify.com/track/6yVGUtmHwDsqqXs1Lak423">افتحي الأغنية على Spotify ♫</a></p>
+  <small>ممكن تحتاجي تضغطي تشغيل بنفسك بسبب إعدادات الموبايل.</small>
+ </div>
+</section>
+
+<section class="section container reveal">
+ <h2 class="title">صور وذكريات حلوة ♡</h2>
+ <p class="sub">شوية صور تزود المفاجأة جمالًا ✨</p>
+ <div class="photos">
+  <div class="photo">
+   <img src="assets/rapunzel_crown.jpg" alt="أميرة بتاج">
+   <p>My Princess ♡</p>
+  </div>
+  <div class="photo">
+   <img src="assets/rapunzel_couple.jpg" alt="شخصيتان كرتونيتان">
+   <p>Beautiful Memories ♡</p>
+  </div>
+  <div class="photo">
+   <img src="assets/new_year_hero.png" alt="ليلة ساحرة">
+   <p>Together Forever ∞</p>
+  </div>
+ </div>
+</section>
+
+<section class="section container reveal" id="letter">
+ <h2 class="title">جواب مخصوص ليكي يا ندى 💌</h2>
+ <p class="sub">كل كلمة هنا من قلبي ليكي ❤️</p>
+
+ <article class="letter">
+  <h2>يا ندوشه بتاعتي ♡</h2>
+
+  <div class="message">يا ندوشه بتاعتي، يا أجمل وأغلى واحدة في حياتي كلها، ويا أقرب حد لقلبي 🥹❤️🫂❤️
+
+عارفة يا ندى، أنا مش عارف أبدأ كلامي معاكي منين ولا أقولك إيه يوصف مكانتك عندي، بس كل اللي أعرفه إني بحبك أوي أوي، أكتر بكتير من أي كلام ممكن أقولهولك، وإن وجودك في حياتي من أجمل الحاجات اللي حصلتلي بجد. إنتي مش مجرد حد قريب مني وخلاص، إنتي أقرب واحدة لقلبي، والحد اللي ليه مكانة عندي محدش يقدر ياخدها، واللي بفرح بوجوده وبحب أحكيله عن يومي وعن كل حاجة بتحصل معايا، حتى لو كانت حاجة صغيرة وملهاش أي أهمية عند أي حد تاني. 🥹❤️</div>
+
+  <div class="message">ومش مصدق إننا داخلين سنة جديدة مع بعض، وإن دي تاني سنة لينا ندخلها وإحنا عارفين بعض وقريبين من بعض بالشكل ده. 🥹❤️❤️ فاكرة يوم 24/06/2025؟ اليوم اللي بدأ فيه كل ده؟ اليوم ده بالنسبالي مش مجرد تاريخ عادي، ده يوم غالي على قلبي عشان من وقتها وإنتي بقيتي جزء من أيامي وتفاصيلي، وبقى لوجودك معنى مختلف عندي. وكل ما الوقت بيعدي بحس إنك بقيتي أغلى عندي أكتر، وإن مكانتك جوايا بتكبر يوم عن يوم. ❤️🫂</div>
+
+  <div class="message">أنا بجد مبسوط إننا وصلنا للسنة الجديدة دي وإنتي لسه موجودة في حياتي، وإن لسه عندي فرصة أقولك كل سنة وإنتي طيبة يا أجمل ندى في الدنيا، وكل سنة وإنتي قريبة من قلبي، وكل سنة وإنتي من أحلى الحاجات اللي ربنا رزقني بيها. يا رب السنة الجديدة تكون سنة حلوة عليكي، مليانة فرحة ونجاح وراحة بال، وأشوفك فيها مبسوطة وبتحققي كل حاجة نفسك فيها، وأفضل دايمًا أشوف ضحكتك اللي بتفرحني من قلبي. 🥹❤️✨</div>
+
+  <div class="message">عارفة إيه أكتر حاجة بتمناها؟ إني أفضل موجود في حياتك، وأفضل الشخص اللي تقدري تحكيله وتتكلمي معاه براحتك، وتضحكي معاه على أبسط الحاجات، وتلاقيه جنبك وقت ما تحتاجيه. نفسي نفضل نعيش ذكريات حلوة كتير مع بعض، ونفتكر بعد سنين كل الأيام والمواقف اللي عدت علينا ونضحك عليها، ونقول إزاي الوقت عدى بسرعة وإحنا لسه مع بعض. نفسي كل سنة تيجي نكون لسه بنقول لبعض كل سنة وإحنا مع بعض، ولسه بنحتفل بوجودنا في حياة بعض، ولسه لينا مكانة حلوة عند بعض. 🫂❤️🥹</div>
+
+  <div class="message">يا ندى، إنتي بالنسبالي مش أي حد، ومهما اتكلمت مش هعرف أوصفلك إنتي غالية عندي قد إيه. وجودك بيفرق معايا، وكلامك بيفرق معايا، وحتى أبسط التفاصيل اللي بينا ليها قيمة عندي. يمكن ساعات مبعرفش أعبّر كويس عن اللي جوايا، ويمكن الكلام مهما كان كتير مش هيوصل كل اللي نفسي أقولهولك، بس عايزك تعرفي إنك إنسانة غالية أوي عندي، وإن ليكي في قلبي معزة كبيرة أوي، وإن أنا ممتن إن ربنا جمعني بيكي وخلاني أعرف حد زيك. ❤️🥹</div>
+
+  <div class="message">وبدعي ربنا من قلبي إنه يخليكي ليا، ويحفظك من كل شر، ويفرح قلبك، ويبعد عنك أي زعل أو وجع، ويكتبلك الخير في كل خطوة تخطيها. يا رب أشوفك دايمًا أحسن وأسعد واحدة، ويا رب كل أحلامك تتحقق، وكل حاجة نفسك فيها ربنا يكرمك بيها. ويا رب نفضل في حياة بعض طول العمر، وتفضل علاقتنا مليانة خير وضحك وذكريات حلوة، ومهما الأيام اتغيرت أو الدنيا شغلتنا، نفضل مقدّرين وجود بعض وعارفين قيمة اللي بينا. ❤️🤲🏻🫂</div>
+
+  <div class="message">أنا نفسي لما تيجي سنة جديدة بعد سنة، وبعدها سنة كمان، نفضل لسه موجودين في حياة بعض، ونفضل نكبر ونشوف أيام أحلى، ونفتكر إننا بدأنا كل ده من زمان، وإن في بينا ذكريات وتفاصيل محدش يعرف قيمتها غيرنا. ونفسي العمر يعدي وإحنا لسه بنطمن على بعض، وبنفرح لفرحة بعض، وبنكون سبب في ابتسامة بعض، ونفضل دايمًا نتمنى لبعض الخير من قلبنا. ❤️✨</div>
+
+  <div class="message">كل سنة وإنتي حبيبتي الغالية، وأقرب واحدة لقلبي، وكل سنة وإنتي ندووشتي اللي ليها مكانة خاصة عندي، وكل سنة وإنتي بخير وسعادة وراحة بال. ❤️🥹
+
+ويا رب دي تكون سنة أحلى من كل اللي فات، وتكون بداية لسنين كتير حلوة نعيشها وإحنا قريبين من بعض، ويا رب أفضل أقولك كل سنة وإنتي طيبة سنين وسنين، وأفضل أشوفك مبسوطة وأشاركك فرحتك ونجاحك وكل لحظة حلوة في حياتك. ويا رب ما يحرمنيش من وجودك، ويخليكي دايمًا بخير، ويفضل بينا الود والمحبة والذكريات الحلوة طول العمر. 🫂❤️🤲🏻</div>
+
+  <div class="message">بحبك أوي يا ندى، والله بحبك أكتر من ما الكلام يقدر يوصف، ومهما كتبتلك مش هحس إن الكلام كفاية. إنتي من أغلى الناس عندي، ومن الناس اللي بجد بتمنى يفضلوا في حياتي على طول. وشكرًا إنك جزء من حياتي، وشكرًا على كل ضحكة وكل موقف حلو وكل ذكرى بينا. ❤️🥹🫶🏻</div>
+
+  <div class="message">كل سنة وإحنا في حياة بعض يا ندوشه، وكل سنة وإنتي أقرب لقلبي، ويا رب نفضل مع بعض طول العمر، وتفضلي دايمًا بخير ومبسوطة، وربنا يخليكي ليا ويحفظك من كل سوء، وما يحرمنيش منك أبدًا يا رب. بحبك يا أجمل ندى في الدنيا كلهاااا. 😭❤️❤️🫂🫶🏻✨</div>
+
+  <div class="message">Happy New Year, Nadoosha. ❤️♾️
+
+تاني سنة لينا مع بعض، وإن شاء الله مش آخر سنة، بل سنين كتير أوي جاية وإحنا لسه بنختار نكون موجودين في حياة بعض. 🥹❤️♾️</div>
+ </article>
+</section>
+
+<section class="section container reveal">
+ <div class="gift-box">
+  <h2 class="title">في هدية أخيرة ليكي 🎁</h2>
+  <p>اضغطي على الهدية يا ندوشه</p>
+  <div class="gift" id="gift" role="button" tabindex="0">🎁</div>
+  <p id="giftText" class="hidden">
+   يا رب السنة الجديدة تكون مليانة ضحك وفرحة ونجاح وراحة بال ليكي.
+   ربنا يحققلك كل اللي بتتمنيه ويحفظ قلبك من الزعل.
+   كل سنة وإنتي بخير يا أجمل ندى ❤️🥹✨
+  </p>
+ </div>
+</section>
+
+<footer>
+ <div class="script">Happy New Year, Nadoosha ♡</div>
+ <p style="margin-top:15px">تاني سنة لينا مع بعض، وإن شاء الله سنين كتير جاية ❤️♾️</p>
+ <p>ربنا يخليكي دايمًا بخير وسعادة يا ندى 🫂❤️</p>
+ <div class="script" style="margin-top:20px">Made with love ♡</div>
+</footer>
+
+</main>
+
+<script>
+/* ========== LOADER ========== */
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('loader').classList.add('done'),1400);
+});
+
+/* ========== CUSTOM CURSOR ========== */
+const cursor=document.getElementById('cursor');
+let mx=0,my=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+document.addEventListener('mouseover',e=>{
+  if(e.target.closest('button,a,.gift,.photo,input')){
+    cursor.classList.add('big');
+  } else cursor.classList.remove('big');
+});
+(function loop(){
+  cx+=(mx-cx)*0.2;cy+=(my-cy)*0.2;
+  cursor.style.left=cx+'px';cursor.style.top=cy+'px';
+  requestAnimationFrame(loop);
+})();
+
+/* ========== FLOATING PETALS ========== */
+const petalEmojis=['🌸','💗','✨','🌹','💕','⭐','♡'];
+function createPetal(){
+  const p=document.createElement('div');
+  p.className='petal';
+  p.textContent=petalEmojis[Math.floor(Math.random()*petalEmojis.length)];
+  p.style.left=Math.random()*100+'vw';
+  p.style.fontSize=(12+Math.random()*18)+'px';
+  p.style.animationDuration=(8+Math.random()*10)+'s';
+  p.style.animationDelay=Math.random()*5+'s';
+  p.style.opacity=0.3+Math.random()*0.5;
+  document.getElementById('petals').appendChild(p);
+  setTimeout(()=>p.remove(),20000);
+}
+setInterval(createPetal,700);
+for(let i=0;i<15;i++)setTimeout(createPetal,i*200);
+
+/* ========== SPARKLES (hero) ========== */
+function addSparkles(){
+  const hero=document.querySelector('.hero');
+  if(!hero)return;
+  for(let i=0;i<8;i++){
+    const s=document.createElement('span');
+    s.className='sparkle';
+    s.textContent='✨';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=Math.random()*2+'s';
+    hero.appendChild(s);
+  }
+}
+addSparkles();
+
+/* ========== SCROLL REVEAL ========== */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ========== PASSWORD FORM ========== */
+const form=document.getElementById('passForm');
+const input=document.getElementById('pass');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(input.value.trim().toLowerCase()==='nada'){
+    document.getElementById('gate').classList.add('hidden');
+    document.getElementById('site').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+    hearts(25);
+    confetti(60);
+    addSparkles();
+  }else{
+    document.getElementById('error').textContent='الكلمة مش مظبوطة يا ندى 🤭 جربي تاني';
+    input.value='';
+    form.animate([
+      {transform:'translateX(0)'},
+      {transform:'translateX(-10px)'},
+      {transform:'translateX(10px)'},
+      {transform:'translateX(-6px)'},
+      {transform:'translateX(6px)'},
+      {transform:'translateX(0)'}
+    ],{duration:400});
+  }
+});
+
+/* ========== HEARTS FALLING ========== */
+function hearts(n){
+  for(let i=0;i<n;i++){
+    setTimeout(()=>{
+      const h=document.createElement('span');
+      h.style.cssText=`
+        position:fixed;bottom:-50px;z-index:100;pointer-events:none;
+        left:${Math.random()*100}vw;font-size:${16+Math.random()*28}px;
+        animation:confettiFall ${5+Math.random()*4}s linear forwards;
+      `;
+      h.textContent=['♡','💗','✨','♥','💕'][Math.floor(Math.random()*5)];
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),10000);
+    },i*80);
+  }
+}
+
+/* ========== CONFETTI BURST ========== */
+function confetti(n){
+  const colors=['#ff6fb5','#ffd99a','#ffb8dc','#a92d70','#fff0f7','#e94c96'];
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.top='-20px';
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.borderRadius=Math.random()>0.5?'50%':'2px';
+    c.style.width=(6+Math.random()*10)+'px';
+    c.style.height=(6+Math.random()*14)+'px';
+    c.style.animationDuration=(3+Math.random()*3)+'s';
+    c.style.animationDelay=Math.random()+'s';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),7000);
+  }
+}
+
+/* ========== GIFT ========== */
+function openGift(){
+  const g=document.getElementById('gift');
+  g.classList.add('open');
+  g.textContent='💝';
+  document.getElementById('giftText').classList.remove('hidden');
+  hearts(30);
+  confetti(80);
+}
+document.getElementById('gift').addEventListener('click',openGift);
+document.getElementById('gift').addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift();}
+});
+</script>
+</body>
+</html>
